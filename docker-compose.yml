@@ -10,5 +10,12 @@ services:
       - "$PWD/jenkins_home:/var/jenkins_home"
     networks:
       - ci_network
+  slave1:
+    container_name: jenkins_slave1
+    image: centos_jenkins_slave
+    build: 
+      context: centos_slave1
+    networks: 
+      - ci_network
 networks:
   ci_network:
